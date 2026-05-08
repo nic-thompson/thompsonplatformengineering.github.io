@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>THOMPSON PLATFORM ENGINEERING</title>
+
+    <meta
+      name="description"
+      content="Distributed systems, telemetry and platform infrastructure consultancy."
+    />
+
+    <style>
+      :root {
+        --bg: #050816;
+        --panel: #0b1220;
+        --panel-light: #111827;
+        --border: rgba(255, 255, 255, 0.08);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #3b82f6;
+        --accent-soft: rgba(59, 130, 246, 0.12);
+        --max-width: 1200px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: radial-gradient(
+          circle at top,
+          #0f172a 0%,
+          #050816 55%
+        );
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .container {
+        width: min(100% - 2rem, var(--max-width));
+        margin-inline: auto;
+      }
+
+      .available-banner {
+        background: var(--accent);
+        color: white;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+
+      .available-banner a {
+        color: white;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        background: rgba(5, 8, 22, 0.8);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--muted);
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 6rem 0 5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #bfdbfe;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        margin-bottom: 1.5rem;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 1.05;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-copy {
+        color: var(--muted);
+        font-size: 1.1rem;
+        max-width: 650px;
+        margin-bottom: 2rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.4rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .button-primary {
+        background: var(--accent);
+        color: white;
+      }
+
+      .button-primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-secondary {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .button-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .hero-image {
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-image img {
+        width: 100%;
+        display: block;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2rem;
+      }
+
+      .section-label {
+        color: #93c5fd;
+        letter-spacing: 0.1em;
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 1.75rem;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.35);
+      }
+
+      .card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .card p {
+        color: var(--muted);
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .tech-pill {
+        padding: 0.65rem 1rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        display: block;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        text-decoration: none;
+        transition:
+          transform 0.2s ease,
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(59, 130, 246, 0.5);
+        background: rgba(59, 130, 246, 0.08);
+      }
+
+      .contact-card h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-card p {
+        color: var(--muted);
+        word-break: break-word;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 0;
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Availability banner — remove once contracted -->
+    <div class="available-banner">
+      Available for contract now &mdash; Outside IR35 &mdash; Senior Backend &amp; Platform Engineering &mdash;
+      <a href="mailto:hello@thompsonplatformengineering.com">hello@thompsonplatformengineering.com</a>
+    </div>
+
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <img src="assets/logo.png" alt="T logo" />
+          <span>THOMPSON PLATFORM ENGINEERING</span>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#stack">Technology</a>
+          <a href="#connect">Connect</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              OUTSIDE IR35 &bull; REMOTE &bull; UK CONSULTANCY
+            </div>
+
+            <h1>
+              Distributed Systems.<br />
+              Telemetry.<br />
+              Platform Infrastructure.
+            </h1>
+
+            <p class="hero-copy">
+              THOMPSON PLATFORM ENGINEERING LTD delivers senior backend
+              engineering, telemetry pipelines, AWS serverless infrastructure,
+              observability, and distributed systems consultancy for
+              cloud-native environments.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="mailto:hello@thompsonplatformengineering.com"
+              >
+                Get in Touch
+              </a>
+
+              <a
+                class="button button-secondary"
+                href="https://github.com/nic-thompson"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img src="assets/hero.png" alt="Nicolas Thompson" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">CAPABILITIES</p>
+            <h2>Core Consultancy Areas</h2>
+          </div>
+
+          <div class="cards">
+            <div class="card">
+              <h3>Backend &amp; Platform Engineering</h3>
+              <p>
+                Python-first backend services, AWS serverless architectures,
+                API design, and production-grade distributed systems.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Telemetry &amp; Data Pipelines</h3>
+              <p>
+                High-throughput event ingestion, structured telemetry extraction,
+                DynamoDB and S3 storage patterns at scale.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Observability &amp; Reliability</h3>
+              <p>
+                Structured logging, CloudWatch monitoring, alerting across
+                async microservice architectures, and incident response tooling.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Infrastructure &amp; Delivery</h3>
+              <p>
+                Terraform, Docker, CI/CD pipelines, deployment automation,
+                and operational reliability engineering.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">TECHNOLOGY</p>
+            <h2>Engineering Stack</h2>
+          </div>
+
+          <div class="tech-stack">
+            <div class="tech-pill">Python</div>
+            <div class="tech-pill">AWS Lambda</div>
+            <div class="tech-pill">DynamoDB</div>
+            <div class="tech-pill">S3</div>
+            <div class="tech-pill">API Gateway</div>
+            <div class="tech-pill">Step Functions</div>
+            <div class="tech-pill">CloudWatch</div>
+            <div class="tech-pill">Terraform</div>
+            <div class="tech-pill">Docker</div>
+            <div class="tech-pill">FastAPI</div>
+            <div class="tech-pill">PostgreSQL</div>
+            <div class="tech-pill">Event-Driven Architecture</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="connect">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">CONTACT</p>
+            <h2>Connect</h2>
+          </div>
+
+          <div class="contact-grid">
+            <a
+              class="contact-card"
+              href="mailto:hello@thompsonplatformengineering.com"
+            >
+              <h3>Email</h3>
+              <p>hello@thompsonplatformengineering.com</p>
+            </a>
+
+            <a
+              class="contact-card"
+              href="https://github.com/nic-thompson"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>GitHub</h3>
+              <p>github.com/nic-thompson</p>
+            </a>
+
+            <a
+              class="contact-card"
+              href="https://www.linkedin.com/in/nicolas-giles-thompson/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/nicolas-giles-thompson</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>&copy; 2026 THOMPSON PLATFORM ENGINEERING LTD &mdash; Company No. 17165500</div>
+        <div>Distributed Systems &bull; Telemetry &bull; Platform Infrastructure</div>
+      </div>
+    </footer>
+  </body>
+</html>
