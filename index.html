@@ -61,6 +61,22 @@
         margin-inline: auto;
       }
 
+      .available-banner {
+        background: var(--accent);
+        color: white;
+        text-align: center;
+        padding: 0.6rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+
+      .available-banner a {
+        color: white;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
       header {
         position: sticky;
         top: 0;
@@ -320,6 +336,13 @@
   </head>
 
   <body>
+
+    <!-- Availability banner — remove once contracted -->
+    <div class="available-banner">
+      Available for contract now &mdash; Outside IR35 &mdash; Senior Backend &amp; Platform Engineering &mdash;
+      <a href="mailto:hello@thompsonplatformengineering.com">hello@thompsonplatformengineering.com</a>
+    </div>
+
     <header>
       <div class="container nav">
         <div class="brand">
@@ -340,7 +363,7 @@
         <div class="container hero-grid">
           <div>
             <div class="eyebrow">
-              OUTSIDE IR35 • REMOTE • UK CONSULTANCY
+              OUTSIDE IR35 &bull; REMOTE &bull; UK CONSULTANCY
             </div>
 
             <h1>
@@ -350,18 +373,18 @@
             </h1>
 
             <p class="hero-copy">
-              THOMPSON PLATFORM ENGINEERING delivers platform
-              engineering, telemetry pipelines, Kubernetes infrastructure,
-              observability platforms and distributed systems consultancy for
-              modern cloud-native environments.
+              THOMPSON PLATFORM ENGINEERING LTD delivers senior backend
+              engineering, telemetry pipelines, AWS serverless infrastructure,
+              observability, and distributed systems consultancy for
+              cloud-native environments.
             </p>
 
             <div class="hero-actions">
               <a
                 class="button button-primary"
-                href="mailto:hello@thompsonplatformengineering.co.uk"
+                href="mailto:hello@thompsonplatformengineering.com"
               >
-                Contact
+                Get in Touch
               </a>
 
               <a
@@ -390,34 +413,34 @@
 
           <div class="cards">
             <div class="card">
-              <h3>Platform Engineering</h3>
+              <h3>Backend &amp; Platform Engineering</h3>
               <p>
-                Kubernetes platforms, infrastructure automation, developer
-                enablement and cloud-native operational foundations.
+                Python-first backend services, AWS serverless architectures,
+                API design, and production-grade distributed systems.
               </p>
             </div>
 
             <div class="card">
-              <h3>Distributed Systems</h3>
+              <h3>Telemetry &amp; Data Pipelines</h3>
               <p>
-                Event-driven architectures, resilience engineering,
-                asynchronous systems and scalable service design.
+                High-throughput event ingestion, structured telemetry extraction,
+                DynamoDB and S3 storage patterns at scale.
               </p>
             </div>
 
             <div class="card">
-              <h3>Telemetry & Observability</h3>
+              <h3>Observability &amp; Reliability</h3>
               <p>
-                OpenTelemetry pipelines, metrics, tracing, structured logging
-                and observability platform engineering.
+                Structured logging, CloudWatch monitoring, alerting across
+                async microservice architectures, and incident response tooling.
               </p>
             </div>
 
             <div class="card">
-              <h3>Infrastructure Automation</h3>
+              <h3>Infrastructure &amp; Delivery</h3>
               <p>
-                Terraform, CI/CD systems, cloud provisioning and operational
-                reliability engineering.
+                Terraform, Docker, CI/CD pipelines, deployment automation,
+                and operational reliability engineering.
               </p>
             </div>
           </div>
@@ -433,17 +456,17 @@
 
           <div class="tech-stack">
             <div class="tech-pill">Python</div>
-            <div class="tech-pill">Kubernetes</div>
+            <div class="tech-pill">AWS Lambda</div>
+            <div class="tech-pill">DynamoDB</div>
+            <div class="tech-pill">S3</div>
+            <div class="tech-pill">API Gateway</div>
+            <div class="tech-pill">Step Functions</div>
+            <div class="tech-pill">CloudWatch</div>
             <div class="tech-pill">Terraform</div>
-            <div class="tech-pill">AWS</div>
-            <div class="tech-pill">OpenTelemetry</div>
-            <div class="tech-pill">Kafka</div>
             <div class="tech-pill">Docker</div>
-            <div class="tech-pill">GitHub Actions</div>
-            <div class="tech-pill">Prometheus</div>
-            <div class="tech-pill">Grafana</div>
-            <div class="tech-pill">Distributed Systems</div>
-            <div class="tech-pill">Platform Infrastructure</div>
+            <div class="tech-pill">FastAPI</div>
+            <div class="tech-pill">PostgreSQL</div>
+            <div class="tech-pill">Event-Driven Architecture</div>
           </div>
         </div>
       </section>
@@ -451,11 +474,19 @@
       <section class="section" id="connect">
         <div class="container">
           <div class="section-header">
-            <p class="section-label">PROFESSIONAL PROFILE</p>
+            <p class="section-label">CONTACT</p>
             <h2>Connect</h2>
           </div>
 
           <div class="contact-grid">
+            <a
+              class="contact-card"
+              href="mailto:hello@thompsonplatformengineering.com"
+            >
+              <h3>Email</h3>
+              <p>hello@thompsonplatformengineering.com</p>
+            </a>
+
             <a
               class="contact-card"
               href="https://github.com/nic-thompson"
@@ -482,13 +513,9 @@
 
     <footer>
       <div class="container footer-inner">
-        <div>© 2026 THOMPSON PLATFORM ENGINEERING LTD</div>
-
-        <div>
-          Distributed Systems • Telemetry • Platform Infrastructure
-        </div>
+        <div>&copy; 2026 THOMPSON PLATFORM ENGINEERING LTD &mdash; Company No. 17165500</div>
+        <div>Distributed Systems &bull; Telemetry &bull; Platform Infrastructure</div>
       </div>
     </footer>
   </body>
-</html><!-- rebuild -->
-<!-- republish -->
+</html>
