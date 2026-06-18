@@ -509,6 +509,116 @@
         flex-wrap: wrap;
       }
 
+      /* ---- SignalForge platform section ---- */
+      .sf-lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 760px;
+        margin-top: 1rem;
+      }
+
+      .sf-pipeline {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 2.4rem 0 0.4rem;
+      }
+
+      .sf-stage {
+        padding: 0.6rem 1rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        font-weight: 600;
+        font-size: 0.92rem;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+      }
+
+      .sf-arrow {
+        color: var(--accent);
+        font-weight: 700;
+        opacity: 0.55;
+      }
+
+      .sf-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2.6rem;
+      }
+
+      .sf-metric {
+        padding: 1.6rem 1.5rem;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+
+      .sf-metric:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(37, 99, 235, 0.08);
+      }
+
+      .sf-metric h3 {
+        font-size: 1.9rem;
+        line-height: 1;
+        margin-bottom: 0.45rem;
+        color: var(--accent2);
+        letter-spacing: -0.04em;
+      }
+
+      .sf-metric p {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .sf-repos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 2.6rem;
+      }
+
+      .sf-repo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.72rem 1.05rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        backdrop-filter: blur(10px);
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.92rem;
+        box-shadow: 0 4px 10px rgba(15, 23, 42, 0.03);
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          color 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+
+      .sf-repo:hover {
+        transform: translateY(-2px);
+        border-color: rgba(37, 99, 235, 0.18);
+        color: var(--accent);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      }
+
+      .sf-repo span {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.86rem;
+      }
+
       @media (max-width: 900px) {
         .nav-links {
           display: none;
@@ -557,6 +667,7 @@
 
         <nav class="nav-links">
           <a href="#services">Services</a>
+          <a href="#platform">Platform</a>
           <a href="#stack">Technology</a>
           <a href="#connect">Connect</a>
         </nav>
@@ -677,6 +788,146 @@
                 operational reliability engineering.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="platform">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">SELECTED WORK</p>
+            <h2>SignalForge &mdash; A Telemetry Intelligence Platform</h2>
+            <p class="sf-lead">
+              A production-shaped analytics, detection and replay control plane
+              for a retail device fleet, built end to end across five
+              repositories. It is engineered around a single hard requirement
+              &mdash; deterministic replay &mdash; so an archived event stream
+              can be reprocessed through the same code to regenerate every
+              derived output, byte for byte.
+            </p>
+          </div>
+
+          <div class="sf-pipeline">
+            <div class="sf-stage">Ingest</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Detect</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Features</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Datasets</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Alerts</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Dashboards</div>
+            <span class="sf-arrow">&rarr;</span>
+            <div class="sf-stage">Replay</div>
+          </div>
+
+          <div class="cards" style="margin-top: 2.4rem;">
+            <div class="card">
+              <h3>Event-time streaming core</h3>
+              <p>
+                Watermark-driven windowing with epoch-aligned boundaries and
+                late-event repair, built function-shaped so the same pipeline
+                runs in streaming, batch, and replay without modification.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Detection &amp; alerting</h3>
+              <p>
+                Device-offline, store-outage and threshold-anomaly detectors
+                feeding severity-aware alert routing, with replay-stable
+                identity so a re-run never re-pages live on-call.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Datasets &amp; dashboards</h3>
+              <p>
+                Partitioned S3/Parquet datasets with schema-per-file evolution,
+                and DynamoDB-backed materialised projections for sub-5-second
+                dashboard freshness.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Deterministic replay</h3>
+              <p>
+                A replay driver that reprocesses an archived stream through
+                replay-isolated sinks, proven by an integration test asserting
+                byte-identical output across the whole control plane.
+              </p>
+            </div>
+          </div>
+
+          <div class="sf-metrics">
+            <div class="sf-metric">
+              <h3>7 / 7</h3>
+              <p>Phases delivered to v1.0.0, each tagged and reviewed</p>
+            </div>
+
+            <div class="sf-metric">
+              <h3>384</h3>
+              <p>Tests; mypy --strict and ruff clean throughout</p>
+            </div>
+
+            <div class="sf-metric">
+              <h3>50k / 8k</h3>
+              <p>Devices and stores in the platform's design brief</p>
+            </div>
+
+            <div class="sf-metric">
+              <h3>2 yr</h3>
+              <p>Retention horizon; sub-5s dashboard freshness target</p>
+            </div>
+          </div>
+
+          <div class="sf-repos">
+            <a
+              class="sf-repo"
+              href="https://github.com/nic-thompson/signal-forge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>signal-forge</span> &middot; analytics control plane
+            </a>
+
+            <a
+              class="sf-repo"
+              href="https://github.com/nic-thompson/event-schema-contracts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>event-schema-contracts</span> &middot; schema authority
+            </a>
+
+            <a
+              class="sf-repo"
+              href="https://github.com/nic-thompson/telemetry-parser"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>telemetry-parser</span> &middot; ingestion
+            </a>
+
+            <a
+              class="sf-repo"
+              href="https://github.com/nic-thompson/structured-logging-python"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>structured-logging-python</span> &middot; observability
+            </a>
+
+            <a
+              class="sf-repo"
+              href="https://github.com/nic-thompson/aws-event-pipeline-infra"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>aws-event-pipeline-infra</span> &middot; Terraform infra
+            </a>
           </div>
         </div>
       </section>
